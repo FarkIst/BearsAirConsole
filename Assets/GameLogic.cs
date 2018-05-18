@@ -97,25 +97,25 @@ public class GameLogic : MonoBehaviour {
             {
                 if ((string)data == "left")
                 {
-                    player1.GetComponent<PlayerMovement>().SetLeft(true);
-                    player1.GetComponent<PlayerMovement>().SetRight(false);
+                    player2.GetComponent<PlayerMovement>().SetLeft(true);
+                    player2.GetComponent<PlayerMovement>().SetRight(false);
                 }
 
                 if ((string)data == "right")
                 {
-                    player1.GetComponent<PlayerMovement>().SetLeft(false);
-                    player1.GetComponent<PlayerMovement>().SetRight(true);
+                    player2.GetComponent<PlayerMovement>().SetLeft(false);
+                    player2.GetComponent<PlayerMovement>().SetRight(true);
                 }
 
                 if ((string)data == "jump")
                 {
-                    player1.GetComponent<PlayerMovement>().Jump();
+                    player2.GetComponent<PlayerMovement>().Jump();
                 }
 
 
                 if ((string)data == "stop")
                 {
-                    player1.GetComponent<PlayerMovement>().SetStop();
+                    player2.GetComponent<PlayerMovement>().SetStop();
                 }
             }
         }
