@@ -9,15 +9,21 @@ public class PlayerMovement : MonoBehaviour {
 
     [Range(0f, 10f)]
     public float jumpValue;
+    public LayerMask whatIsGround;
+    public Transform groundCheck;
 
+    private Rigidbody2D rb;
 
     private bool _left;
-   // private bool _jump;
     private bool _right;
+    private bool isGrounded;
+    
+    
 
     // Use this for initialization
     void Start () {
-		
+        rb = gameObject.GetComponent<Rigidbody2D>();
+       
 	}
 	
 	// Update is called once per frame
@@ -25,11 +31,11 @@ public class PlayerMovement : MonoBehaviour {
 
         if (_left)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-movementSpeed,0);
+            rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
         }
         if (_right)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(movementSpeed, 0);
+            rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
         }
 
 	}
@@ -46,13 +52,22 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Jump()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpValue);
+        if(isGrounded)
+        {
+            rb.AddForce(Vector2.up * jumpValue, ForceMode2D.Impulse);
+            isGrounded = false;
+        }
     }
 
     public void SetStop()
     {
         _left = false;
-        _right = false;
+        _right = false; 
+    }
+    void FixedUpdate()
+    {
+        isGrounded = Physics2D.OverlapPoint(groundCheck.position, whatIsGround);
         
     }
+
 }

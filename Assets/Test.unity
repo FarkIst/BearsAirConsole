@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 383823843}
   - component: {fileID: 383823844}
   - component: {fileID: 383823845}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassSprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 709918955}
   - component: {fileID: 709918956}
   - component: {fileID: 709918957}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassSprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 710282401}
   - component: {fileID: 710282400}
   - component: {fileID: 710282403}
+  - component: {fileID: 710282404}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -569,7 +570,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.54, y: -2.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1056336546}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -598,6 +600,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.13, y: 0.67}
   m_EdgeRadius: 0
+--- !u!114 &710282404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710282399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b641d11f9e2741afd5abb1f300de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 3
+  jumpValue: 5
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCheck: {fileID: 1056336546}
 --- !u!1 &750071871
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +700,7 @@ GameObject:
   - component: {fileID: 794917208}
   - component: {fileID: 794917209}
   - component: {fileID: 794917210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrassSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,6 +789,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.24, y: 10.24}
   m_EdgeRadius: 0
+--- !u!1 &823013601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 823013602}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &823013602
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 823013601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1389748467}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880141955
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +902,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1056336545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1056336546}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056336546
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056336545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 710282402}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1360699184
 GameObject:
@@ -959,7 +1034,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.43, y: -2.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 823013602}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1019,8 +1095,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192b641d11f9e2741afd5abb1f300de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  jumpValue: 3
+  movementSpeed: 3
+  jumpValue: 5
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCheck: {fileID: 823013602}
 --- !u!1 &1442981862
 GameObject:
   m_ObjectHideFlags: 0
