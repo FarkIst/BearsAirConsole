@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour {
 
-    public Rigidbody2D player1;
-    public Rigidbody2D player2;
+    public GameObject player1;
+    public GameObject player2;
     public Text uiText;
+    private bool move;
 #if !DISABLE_AIRCONSOLE
 
     void Awake()
@@ -62,24 +63,60 @@ public class GameLogic : MonoBehaviour {
         int active_player = AirConsole.instance.ConvertDeviceIdToPlayerNumber(from);
         if (active_player != -1)
         {
+           
+
             if (active_player == 0)
             {
+                if ((string)data == "left")
+                {
+                    player1.GetComponent<PlayerMovement>().SetLeft(true);
+                    player1.GetComponent<PlayerMovement>().SetRight(false);
+                }
+
+                if ((string)data == "right")
+                {
+                    player1.GetComponent<PlayerMovement>().SetLeft(false);
+                    player1.GetComponent<PlayerMovement>().SetRight(true);
+                }
+
+                if ((string)data == "jump")
+                {
+                    player1.GetComponent<PlayerMovement>().Jump();
+                }
+
+                
+                if ((string)data == "stop")
+                {
+                    player1.GetComponent<PlayerMovement>().SetStop();
+                }
                
 
-                    this.player1.velocity = Vector3.left * (float)data["move"];
-                
 
-                if ((float)data == 1f)
-                {
-                    this.player1.AddForce(new Vector3(0, 1, 0), ForceMode2D.Impulse);
-                }
             }
             if (active_player == 1)
             {
-               this.player2.velocity = Vector3.left * (float)data["move"];
+                if ((string)data == "left")
+                {
+                    player1.GetComponent<PlayerMovement>().SetLeft(true);
+                    player1.GetComponent<PlayerMovement>().SetRight(false);
+                }
 
-                //    this.player2.AddForce(new Vector3(0, (float)data["move"], 0), ForceMode2D.Impulse);
+                if ((string)data == "right")
+                {
+                    player1.GetComponent<PlayerMovement>().SetLeft(false);
+                    player1.GetComponent<PlayerMovement>().SetRight(true);
+                }
 
+                if ((string)data == "jump")
+                {
+                    player1.GetComponent<PlayerMovement>().Jump();
+                }
+
+
+                if ((string)data == "stop")
+                {
+                    player1.GetComponent<PlayerMovement>().SetStop();
+                }
             }
         }
     }

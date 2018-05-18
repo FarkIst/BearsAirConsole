@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   browserStartMode: 0
-  controllerHtml: {fileID: 4900000, guid: 8fc8a37abcbfc124e97a1c0e445d061f, type: 3}
+  controllerHtml: {fileID: 4900000, guid: 44bbb601c1f289843a165bea51948601, type: 3}
   autoScaleCanvas: 1
 --- !u!4 &880141957
 Transform:
@@ -840,8 +840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bbfd92fccae13479bdbe542da7dae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1389748468}
-  player2: {fileID: 710282400}
+  player1: {fileID: 1389748465}
+  player2: {fileID: 710282399}
   uiText: {fileID: 1782861798}
 --- !u!4 &1039735628
 Transform:
@@ -898,6 +898,7 @@ GameObject:
   - component: {fileID: 1389748468}
   - component: {fileID: 1389748469}
   - component: {fileID: 1389748466}
+  - component: {fileID: 1389748470}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -956,7 +957,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389748465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.98, y: -2.06, z: 0}
+  m_LocalPosition: {x: -10.43, y: -2.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1007,6 +1008,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.13, y: 0.67}
   m_EdgeRadius: 0
+--- !u!114 &1389748470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389748465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b641d11f9e2741afd5abb1f300de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
+  jumpValue: 3
 --- !u!1 &1442981862
 GameObject:
   m_ObjectHideFlags: 0
