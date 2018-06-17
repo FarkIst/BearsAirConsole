@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public GameObject bombPrefab;
+    public GameObject puffPrefab;
     public Transform bombSpawn;
 
     private Rigidbody2D rb;
@@ -100,7 +101,15 @@ public class PlayerMovement : MonoBehaviour {
 
     public void AddDamage()
     {
+        rb.AddForce(transform.localPosition * 10f);
         anim.SetTrigger("dead");
+    }
+
+    public void AddPropDamage()
+    {
+        Instantiate(puffPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
+
     }
 
 }

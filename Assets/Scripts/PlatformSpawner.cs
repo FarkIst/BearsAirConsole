@@ -8,6 +8,10 @@ public class PlatformSpawner : MonoBehaviour {
     public float position2x;
     public float positionY;
     public float speed;
+    [Range(1f, 20f)]
+    public float spawnIntervalMin;
+    [Range(1f, 20f)]
+    public float spawnIntervalMax;
 
     public GameObject[] objectsToSpawn;
 
@@ -36,16 +40,17 @@ public class PlatformSpawner : MonoBehaviour {
         if (spawned == false)
         {
             spawned = true;
-            Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)], gameObject.transform.position, gameObject.transform.rotation);
+            GameObject go = Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)], gameObject.transform.position, gameObject.transform.rotation);
+            go.transform.parent = GameObject.Find("Props").transform;
             StartCoroutine(Spawnable());
         }
 	}
 
     IEnumerator Spawnable()
     {
-        waitForSpawn = Random.Range(2, 4);
+        waitForSpawn = Random.Range(spawnIntervalMin, spawnIntervalMax);
         yield return new WaitForSeconds(waitForSpawn);
         spawned = false;
-        Debug.Log("Coroutine finished");
+
     }
 }

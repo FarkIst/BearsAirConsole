@@ -9,7 +9,9 @@ public class GameLogic : MonoBehaviour {
 
     public GameObject player1;
     public GameObject player2;
+
     public Text uiText;
+
     private bool move;
 #if !DISABLE_AIRCONSOLE
 
@@ -126,6 +128,8 @@ public class GameLogic : MonoBehaviour {
         AirConsole.instance.SetActivePlayers(2);
 
     }
+
+
 
     // Use this for initialization
     void Start () {
