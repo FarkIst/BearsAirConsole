@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4207667992086952}
   - component: {fileID: 212291765337196952}
   - component: {fileID: 61216743683394714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IceSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

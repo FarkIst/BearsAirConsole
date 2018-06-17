@@ -12,11 +12,13 @@ public class PlayerMovement : MonoBehaviour {
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public GameObject bombPrefab;
+    public Transform bombSpawn;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
 
+    
     private bool _left;
     private bool _right;
     private bool isGrounded;
@@ -28,7 +30,8 @@ public class PlayerMovement : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
-	}
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,11 +40,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
             sr.flipX = false;
+            GetComponentInChildren<HairFab>().FlipHair(true);
+            bombSpawn.localPosition = new Vector2(1f, 0f);
         }
         if (_right)
         {
             rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
             sr.flipX = true;
+            GetComponentInChildren<HairFab>().FlipHair(false);
+            bombSpawn.localPosition = new Vector2(-1f, 0f);
         }
 
 	}
@@ -74,7 +81,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (!isGrounded)
         {
-            GameObject go = Instantiate(bombPrefab, groundCheck.transform.position, transform.rotation);
+            GameObject go = Instantiate(bombPrefab, bombSpawn.transform.position, bombSpawn.transform.rotation);
+            Rigidbody2D projectile = go.GetComponent<Rigidbody2D>();
+            projectile.AddForce(bombSpawn.transform.localPosition * 1000f);
         }
     }
 

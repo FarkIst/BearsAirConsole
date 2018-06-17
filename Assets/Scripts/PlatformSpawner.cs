@@ -43,7 +43,7 @@ public class PlatformSpawner : MonoBehaviour {
 
     IEnumerator Spawnable()
     {
-        waitForSpawn = Random.Range(3f, 6f);
+        waitForSpawn = Random.Range(2, 4);
         yield return new WaitForSeconds(waitForSpawn);
         spawned = false;
         Debug.Log("Coroutine finished");
