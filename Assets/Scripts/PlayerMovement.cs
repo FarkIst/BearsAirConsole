@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -14,12 +15,13 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject bombPrefab;
     public GameObject puffPrefab;
     public Transform bombSpawn;
+    public Text uiText;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
 
-    
+    private int projectileCount;
     private bool _left;
     private bool _right;
     private bool isGrounded;
@@ -36,6 +38,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        uiText.text = "Projectiles: " + projectileCount.ToString();
+        Debug.Log(isGrounded);
 
         if (_left)
         {
@@ -80,11 +85,21 @@ public class PlayerMovement : MonoBehaviour {
             isGrounded = false;
             anim.SetTrigger("jump");
         }
-        if (!isGrounded)
+
+    }
+
+    public void Shoot()
+    {
+        if(projectileCount > 0)
         {
             GameObject go = Instantiate(bombPrefab, bombSpawn.transform.position, bombSpawn.transform.rotation);
             Rigidbody2D projectile = go.GetComponent<Rigidbody2D>();
-            projectile.AddForce(bombSpawn.transform.localPosition * 1000f);
+            projectile.AddForce(bombSpawn.transform.localPosition * 500f);
+            projectileCount = projectileCount - 1;
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -103,6 +118,11 @@ public class PlayerMovement : MonoBehaviour {
     {
         rb.AddForce(transform.localPosition * 10f);
         anim.SetTrigger("dead");
+    }
+
+    public void AddTrumpjectile(int proj)
+    {
+        projectileCount = projectileCount + proj;
     }
 
     public void AddPropDamage()

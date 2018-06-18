@@ -70,26 +70,11 @@
         .button {
             display: inline-grid;
             height: 60%;
-            width: 20%;
+            width: 80%;
             background-color: #222;
             position: sticky;
         }
 
-        .buttonjump {
-            display: inline-flex;
-            height: 30%;
-            width: 20%;
-            background-color: #5d5555;
-            position: relative;
-        }
-        
-        .buttonshoot {
-            display: inline-table;
-            height: 20%;
-            width: 20%;
-            background-color: #6f2424;
-            position: fixed;
-        }
         
         .button_label {
             position: absolute;
@@ -97,6 +82,7 @@
             width: 100%;
             top: 50%;
             margin-top: -6px;
+            font-size: 100;
         }
 
         #player_id {
@@ -111,23 +97,9 @@
 </head>
 <body onload="init()">
     <div style="height: 5%"></div>
-    <div class=button ontouchstart="message('left')"  onmousedown="message('left')"  ontouchend="message('stop')" onmouseup="message('stop')">
-        <div class="button_label">LEFT</div>
+    <div class=button ontouchstart="message('start')"  onmousedown="message('start')"  ontouchend="message('stop')" onmouseup="message('stop')">
+        <div class="button_label">Start</div>
     </div>
-    
-    <div class=buttonshoot ontouchstart="message('shoot')" onmousedown="message('shoot')" ontouchend="message('stop')" onmouseup="message('stop')">
-        <div class="button_label">SHOOT</div>
-    </div>
-    
-    <div class=buttonjump ontouchstart="message('jump')" onmousedown="message('jump')" ontouchend="message('stop')" onmouseup="message('stop')">
-        <div class="button_label">JUMP</div>
-    </div>
-    
-    
-    <div class=button ontouchstart="message('right')" onmousedown="message('right')" ontouchend="message('stop')" onmouseup="message('stop')">
-        <div class="button_label">RIGHT</div>
-    </div>
-    
    
     <div id="player_id"></div>
 </body>

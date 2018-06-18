@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61374273768876714}
   - component: {fileID: 50660126269282090}
   - component: {fileID: 114824872474567622}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PlankSpriteKim
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4687674373563768}
   - component: {fileID: 212392050532145520}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlankSprite_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 61766290241182972}
   - component: {fileID: 50836452480936966}
   - component: {fileID: 114739982738681956}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TanKim
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968118757828180}
   - component: {fileID: 212156878861238570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlankSprite_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4809546742044608}
   - component: {fileID: 212035165497580332}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kim_III
   m_TagString: Untagged
   m_Icon: {fileID: 0}

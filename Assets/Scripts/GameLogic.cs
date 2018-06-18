@@ -69,6 +69,7 @@ public class GameLogic : MonoBehaviour {
 
             if (active_player == 0)
             {
+
                 if ((string)data == "left")
                 {
                     player1.GetComponent<PlayerMovement>().SetLeft(true);
@@ -92,7 +93,10 @@ public class GameLogic : MonoBehaviour {
                     player1.GetComponent<PlayerMovement>().SetStop();
                 }
                
-
+                if((string)data == "shoot")
+                {
+                    player1.GetComponent<PlayerMovement>().Shoot();
+                }
 
             }
             if (active_player == 1)
@@ -118,6 +122,11 @@ public class GameLogic : MonoBehaviour {
                 if ((string)data == "stop")
                 {
                     player2.GetComponent<PlayerMovement>().SetStop();
+                }
+
+                if ((string)data == "shoot")
+                {
+                    player2.GetComponent<PlayerMovement>().Shoot();
                 }
             }
         }
