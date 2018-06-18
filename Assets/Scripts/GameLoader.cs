@@ -5,15 +5,20 @@ using UnityEngine;
 public class GameLoader : MonoBehaviour {
 
     public GameObject[] objectsToEnable;
-	
-    // Use this for initialization
-	void Start () {
-		foreach(GameObject go in objectsToEnable)
+
+    void Start()
+    {
+        foreach (GameObject go in objectsToEnable)
         {
             go.SetActive(false);
         }
+    }
+
+    public void SetStart()
+    {
+
         StartCoroutine(StartGame());
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,7 +27,7 @@ public class GameLoader : MonoBehaviour {
 
     IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         foreach (GameObject go in objectsToEnable)
         {
             go.SetActive(true);

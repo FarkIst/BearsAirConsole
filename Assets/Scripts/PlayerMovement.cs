@@ -33,14 +33,14 @@ public class PlayerMovement : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
-       
+        uiText = GameObject.Find(gameObject.name + "t").GetComponent<Text>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         uiText.text = "Projectiles: " + projectileCount.ToString();
-        Debug.Log(isGrounded);
+
 
         if (_left)
         {
@@ -122,14 +122,14 @@ public class PlayerMovement : MonoBehaviour {
 
     public void AddTrumpjectile(int proj)
     {
-        projectileCount = projectileCount + proj;
+        projectileCount += proj;
     }
 
     public void AddPropDamage()
     {
         Instantiate(puffPrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
-
+        gameObject.SetActive(false);
+        GameObject.Find("GameController").GetComponent<GControllerScript>().GetDeadPlayer(gameObject.name);
     }
 
 }

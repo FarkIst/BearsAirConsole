@@ -135,7 +135,7 @@ public class GameLogic : MonoBehaviour {
     void StartGame()
     {
         AirConsole.instance.SetActivePlayers(2);
-
+        GameObject.Find("Menu").GetComponent<GameLoader>().SetStart();
     }
 
 
