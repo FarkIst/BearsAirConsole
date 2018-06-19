@@ -24,7 +24,6 @@ public class ExplosionScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(explosionTime);
         GameObject go = Instantiate(explodePrefab, gameObject.transform.position, gameObject.transform.rotation);
-        Debug.Log("Coroutine finished");
         Destroy(gameObject);
         
     }

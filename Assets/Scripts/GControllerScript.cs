@@ -54,7 +54,7 @@ public class GControllerScript : MonoBehaviour {
     {
         player1.transform.position = p1Spawn.transform.position;
         player2.transform.position = p2Spawn.transform.position;
-        props.transform.position = GameStartPosition.transform.position;
+
         // GameObject cam = Instantiate(cameraPrefab, new Vector2(0, 0), transform.rotation);
         //      cam.name = "Main Camera";
         //       cam.GetComponent<CameraMovement>().delay = 7f;

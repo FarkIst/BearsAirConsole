@@ -16,7 +16,10 @@ public class GameLoader : MonoBehaviour {
 
     public void SetStart()
     {
-
+        foreach (GameObject go in objectsToEnable)
+        {
+            go.SetActive(false);
+        }
         StartCoroutine(StartGame());
     }
 	
